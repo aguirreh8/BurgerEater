@@ -1,0 +1,40 @@
+<div class="page-intro">
+	<h1 class="title">Burger Eater</h1>
+	<p class="page-desc">Come on in and Eat as many burgers as you want! You can order anything here! Bon appetit!</p>
+	<br />
+	<img class="burger-img" src="assets/img/burger.png"/>
+</div>
+<div class="page-middle">
+	<div class="burgers-container">
+		<ul>
+			{{#each burger}}
+				{{#unless devoured}}
+					{{> burgers/burger-block devoured=false}}
+				{{/unless}}
+			{{/each}}
+		</ul>
+	</div>
+	<div class="devoured-container">
+		<ul>
+			<li>
+				<p class="devoured-name">Cheese double burger</p>
+				<hr />
+			</li>
+			<li>
+				<p class="devoured-name">Cheese double burger</p>
+				<hr />
+			</li>
+			<li>
+				<p class="devoured-name">Cheese double burger</p>
+				<hr />
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="submit-form">
+	<form class="create-a-burger">
+		<input class="new-burger--text" name="newBurger" id="newBurger" placeholder="Enter a new burger here!" />
+		<br />
+		<button type="submit" name="submitBtn" class="submit-btn">Submit</button>
+	</form>
+</div>
