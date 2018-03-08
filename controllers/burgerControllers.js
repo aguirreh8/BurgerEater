@@ -11,15 +11,10 @@ router.get("/", function(req, res) {
 	})
 });
 
-router.post("/api/burgers", function(req, res) {
+router.post("/api/burgers/new", function(req, res) {
 	const newBurger = req.body.burger_name;
 	burger.insert(newBurger, function(results) {
-		if(results.changedRows === 0) {
-			return res.status(404).end();
-		} else {
-			console.log(newBurger);
-			res.status(200).end();
-		}
+		res.json(results);
 	})
 })
 

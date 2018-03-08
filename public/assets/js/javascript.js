@@ -1,16 +1,15 @@
 $(document).ready(function() {
 
 	$("#submitBtn").click(function(event) {
-		// event.preventDefault();
+		event.preventDefault();
 		const newBurger = {
 			burger_name: $("#newBurger").val()
 		}
 
 		console.log(newBurger.burger_name);
 
-		$.post("/api/burgers", newBurger)
-		.then(function() {
-			console.log("Added data");
+		$.post("/api/burgers/new", newBurger)
+		.then(function(data) {
 			location.reload();
 		})
 	})
