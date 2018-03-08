@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const routes = require("./controllers/burgerControllers.js")
 
-app.use(express.static('/public/'));
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended:false }));
 app.use(bodyParser.json());
 

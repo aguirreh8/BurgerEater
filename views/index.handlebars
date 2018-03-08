@@ -1,13 +1,13 @@
 <div class="page-intro">
 	<h1 class="title">Burger Eater</h1>
-	<p class="page-desc">Come on in and Eat as many burgers as you want! You can order anything here! Bon appetit!</p>
+	<p class="page-desc">Come on in and eat as many burgers as you want! You can order anything here! Bon appetit!</p>
 	<br />
 	<img class="burger-img" src="assets/img/burger.png"/>
 </div>
 <div class="page-middle">
 	<div class="burgers-container">
 		<ul>
-			{{#each burger}}
+			{{#each burgers}}
 				{{#unless devoured}}
 					{{> burgers/burger-block devoured=false}}
 				{{/unless}}
@@ -16,7 +16,15 @@
 	</div>
 	<div class="devoured-container">
 		<ul>
-			<li>
+			{{#each burgers}}
+				{{#if devoured}}
+				<li>
+					<p class="devoured-name">{{id}}. {{burger_name}}</p>
+					<hr/>
+				</li>
+				{{/if}}
+			{{/each}}
+{{!-- 			<li>
 				<p class="devoured-name">Cheese double burger</p>
 				<hr />
 			</li>
@@ -27,7 +35,7 @@
 			<li>
 				<p class="devoured-name">Cheese double burger</p>
 				<hr />
-			</li>
+			</li> --}}
 		</ul>
 	</div>
 </div>
