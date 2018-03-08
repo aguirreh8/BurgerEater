@@ -7,6 +7,11 @@ const burger = {
 			cb(res);
 		}) 
 	},
+	insert: function(value, cb) {
+		orm.insert("burgers", "burger_name", value, function(res) {
+			cb(res);
+		})
+	},
 	update: function(state, id, cb) {
 		orm.update("burgers", state, id, function(res) {
 			cb(res);

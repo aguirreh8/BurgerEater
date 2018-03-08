@@ -16,6 +16,19 @@ const orm = {
 		});
 	},
 
+	//Insert data into table
+	insert: function(tableInput, colInput, value, cb) {
+		connection.query(
+			"INSERT INTO ?? (??) VALUES (?)",
+			[tableInput, colInput, value],
+			function(err, data) {
+				if(err) {
+					throw err;
+				}
+				cb(data);
+			})
+	},
+
 	//Update table using specified parameters
 	update: function(tableInput, state, id, cb) {
 		connection.query(

@@ -11,6 +11,18 @@ router.get("/", function(req, res) {
 	})
 });
 
+router.post("/api/burgers", function(req, res) {
+	const newBurger = req.body.burger_name;
+	burger.insert(newBurger, function(results) {
+		if(results.changedRows === 0) {
+			return res.status(404).end();
+		} else {
+			console.log(newBurger);
+			res.status(200).end();
+		}
+	})
+})
+
 router.put("/api/burgers/:id", function(req, res) {
 	const id = parseInt(req.params.id);
 	const state = parseInt(req.body.state);
